@@ -1,0 +1,155 @@
+﻿@{
+    ViewData["Title"] = " Mission Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model GeneralViewModel
+@using System.Security.Claims;
+@{
+    var identity = User.Identity as ClaimsIdentity;
+    var name = identity?.FindFirst(ClaimTypes.Name)?.Value;
+    var surname = identity?.FindFirst(ClaimTypes.Surname)?.Value;
+    var Email = identity?.FindFirst(ClaimTypes.Email)?.Value;
+    var uid = identity?.FindFirst(ClaimTypes.Sid)?.Value;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/platform.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <partial name="_navbar" />
+    <div class="container">
+        <div id="missions-list">
+
+        </div>
+        
+       @* <div class="d-flex justify-content-center">
+            <cs-pager cs-paging-pagenumber=@Model.currentPage
+                      cs-paging-totalitems=@Model.totalrecord
+                      cs-paging-pagesize="3"
+                      cs-pagenumber-param="pageIndex"
+                      asp-controller="Home"
+                      asp-action="Platform"
+                      cs-pager-li-current-class="page-item active"
+                      cs-pager-li-other-class="page-item"
+                      cs-pager-li-non-active-class="page-item disabled"
+                      cs-pager-link-current-class="page-link"
+                      cs-pager-link-other-class="page-link">
+            </cs-pager>
+        </div>*@
+        
+        <hr>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="copyright-menu">
+                            <ul>
+                                <li>
+                                    <a href="#">Privacy Policy</a>
+                                </li>
+                                <li>
+                                    <a href="#">Cookies Policy</a>
+                                </li>
+                                <li>
+                                    <a href="#">Terms of use</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 rights">
+                        <span> © 2019 optimy.com. All Right Reserved </span>
+                    </div>
+                    <!-- End Col -->
+                    <!-- End col -->
+                </div>
+                <!-- End Row -->
+            </div>
+            <!-- End Copyright Container -->
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="~/js/platform.js"></script>
+   
+    <script>
+        //       window.addEventListener("load", () => {
+        //      // (A) GET HTML ELEMENTS
+        //      var filter = document.getElementById("search-field"), // search box
+        //          list = document.querySelectorAll(".card"); // all cards
+
+        //      // (B) ATTACH KEY UP LISTENER TO SEARCH BOX
+        //      filter.onkeyup = () => {
+        //        // (B1) GET CURRENT SEARCH TERM
+        //        let search = filter.value.toLowerCase();
+
+        //        // (B2) LOOP THROUGH LIST ITEMS - ONLY SHOW THOSE THAT MATCH SEARCH
+        //        for (let i of list ){
+        //            let a = i.getElementsByClassName("card-body")[0]
+        //            console.log(a)
+        //          let item = a.innerHTML.toLowerCase();
+        //          if (item.indexOf(search) == -1) { i.hidden = true; }
+        //          else { i.hidden = false; }
+        //    }
+        //  };
+        //});
+        </script>
+    <script>
+        @*filter by themes , cities , skills*@
+
+        //$(document).ready(function () {
+        //$('input[type=checkbox][id=flexCheckDefault]').change(function () {
+        //var selectTheme = $('input[type=checkbox][id=flexCheckDefault]:checked').map(function () {
+        //return $(this).val();
+
+        //}).get();
+        //console.log(selectTheme);
+        //if (selectTheme.length > 0) {
+        //$('.card').hide();
+        //$.each(selectTheme, function (index, value) {
+        //$('.card:contains("' + value + '")').show();
+
+        //});
+        //} else {
+        //$('.card').show();
+        //}
+        //});
+        //});
+    </script>
+
+    //<script>
+    //    $(".ratingStar").hover(function (){
+
+    //        $(".ratingStar").addClass("far").removeClass("fas");
+    //        $(this).addClass("fas").removeClass("far");
+    //        $(this).prevAll(".ratingStar").addClass("fas").removeClass("far");
+
+    //    })
+    //    $(".ratingStar").click(function (){
+    //         var starValue = $(this).attr("data-value");
+    //         debugger;
+    //        $("#ratingsStar").val(starValue);
+    //    })
+
+    //</script>
+  
+</body>
+</html>
+
+
+

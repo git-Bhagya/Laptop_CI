@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Ci_Project</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Ci_Project.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+
+
+        <script>
+        function notloggedin() {
+        // trigger the alert message using Swal.fires
+        Swal.fire({
+        icon: 'error',
+        showCloseButton: true,
+        title: 'Please Login',
+        showConfirmButton: false,
+        text: 'Press the below button to login or Register',
+        footer: '<div class="btn-group">' +
+        '<a href="' + '@Url.Action("Login", "Login")"' + ' class="btn btn-success">Login</a>' +
+        '<a href="' + '@Url.Action("Registration", "Registration")"' + ' class="btn btn-dark">Register</a>' +
+        '</div>',
+        });
+        //console.log(footer);
+        };
+        </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
